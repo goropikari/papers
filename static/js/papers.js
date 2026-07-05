@@ -26,7 +26,13 @@ function paperMatchesTag(card, tag) {
     return true;
   }
 
-  var tags = (card.getAttribute("data-tags") || "").split(/\s+/);
+  var tags = [];
+  try {
+    tags = JSON.parse(card.getAttribute("data-tags") || "[]");
+  } catch (_error) {
+    tags = [];
+  }
+
   return tags.indexOf(tag) !== -1;
 }
 
@@ -40,6 +46,7 @@ function applyPaperFilters(root) {
   cards.forEach(function(card) {
     var visible = paperMatchesQuery(card, query) && paperMatchesTag(card, tag);
     card.hidden = !visible;
+    card.classList.toggle("is-hidden", !visible);
     if (visible) {
       visibleCount += 1;
     }
@@ -47,7 +54,9 @@ function applyPaperFilters(root) {
 
   var empty = root.querySelector("[data-filter-empty]");
   if (empty) {
-    empty.hidden = visibleCount !== 0;
+    var hasVisibleCards = visibleCount !== 0;
+    empty.hidden = hasVisibleCards;
+    empty.classList.toggle("is-hidden", hasVisibleCards);
   }
 }
 

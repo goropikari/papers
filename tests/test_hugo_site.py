@@ -280,8 +280,11 @@ class HugoSiteTests(unittest.TestCase):
             list_html = read_public(site, "papers/index.html")
             self.assertIn('data-tag-filter="RAG"', list_html)
             self.assertIn('data-tag-filter="Vision"', list_html)
-            self.assertIn('data-tags="LLM RAG"', list_html)
-            self.assertIn('data-tags="Vision"', list_html)
+            self.assertIn(
+                'data-tags="[&#34;LLM&#34;,&#34;RAG&#34;]"',
+                list_html,
+            )
+            self.assertIn('data-tags="[&#34;Vision&#34;]"', list_html)
 
     def test_status_frontmatter_is_not_required(self):
         with copy_project() as temp_dir:

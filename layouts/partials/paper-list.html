@@ -31,14 +31,13 @@ append . }} {{ end }} {{ end }} {{ $tags = sort (uniq $tags) }}
   </section>
 
   <section class="paper-list" aria-live="polite">
-    {{ if $papers }} {{ range $papers }} {{ $tagText := delimit .Params.tags " "
-    }}
+    {{ if $papers }} {{ range $papers }}
     <article
       class="paper-card"
       data-paper-card
       data-search-title="{{ .Title }}"
       data-search-summary="{{ .Params.summary }}"
-      data-tags="{{ $tagText }}"
+      data-tags="{{ .Params.tags | jsonify }}"
     >
       <div class="paper-card-main">
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>

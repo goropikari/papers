@@ -103,6 +103,11 @@ a {
   background: #ffffff;
 }
 
+.paper-card.is-hidden,
+.empty-state.is-hidden {
+  display: none;
+}
+
 .paper-card h2 {
   margin: 0;
   font-size: 1.2rem;
