@@ -1,0 +1,10 @@
+baseURL = "https://goropikari.github.io/papers/"
+defaultContentLanguage = "ja"
+locale = "ja-JP"
+title = "Papers"
+
+[params]
+description = "Personal paper reading notes"
+
+[taxonomies]
+tag = "tags"

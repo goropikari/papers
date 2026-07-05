@@ -1,0 +1,177 @@
+:root {
+  color-scheme: light;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  color: #17202a;
+  background: #f7f8fa;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #2557a7;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #d9dee7;
+  background: #ffffff;
+}
+
+.site-title {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.lede {
+  color: #526070;
+}
+
+.paper-controls,
+.paper-list,
+.paper-meta,
+.paper-body {
+  margin-top: 24px;
+}
+
+.paper-controls {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.paper-controls input {
+  max-width: 560px;
+  padding: 10px 12px;
+  border: 1px solid #b8c1cf;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.tag-filters,
+.paper-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-filter {
+  padding: 6px 10px;
+  border: 1px solid #b8c1cf;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #17202a;
+  cursor: pointer;
+}
+
+.tag-filter.is-active {
+  border-color: #2557a7;
+  background: #eaf1ff;
+  color: #173f85;
+}
+
+.paper-list {
+  display: grid;
+  gap: 16px;
+}
+
+.paper-card {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.paper-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.paper-card-summary {
+  margin: 8px 0 0;
+  color: #3b4655;
+}
+
+.paper-card-meta,
+.paper-meta {
+  display: grid;
+  gap: 12px;
+}
+
+.paper-card-meta {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 0;
+}
+
+.paper-card-meta div,
+.paper-meta {
+  min-width: 0;
+}
+
+.paper-card-meta dt,
+.paper-meta dt {
+  color: #66758a;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.paper-card-meta dd,
+.paper-meta dd {
+  margin: 2px 0 0;
+}
+
+.paper-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paper-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #edf0f4;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.paper-detail-header h1 {
+  margin-bottom: 8px;
+}
+
+.paper-summary {
+  color: #3b4655;
+}
+
+.paper-body {
+  padding-top: 8px;
+}
+
+.empty-state {
+  color: #66758a;
+}

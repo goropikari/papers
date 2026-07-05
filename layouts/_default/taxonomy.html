@@ -1,0 +1,14 @@
+{{ define "title" }}{{ .Title }} | Papers{{ end }} {{ define "main" }}
+<section class="page-shell">
+  <h1>{{ .Title }}</h1>
+  {{ if .Pages }}
+  <ul>
+    {{ range sort (sort .Pages "Title" "asc") "Params.year" "desc" }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="empty-state">No papers yet.</p>
+  {{ end }}
+</section>
+{{ end }}

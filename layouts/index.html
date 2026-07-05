@@ -1,0 +1,3 @@
+{{ define "title" }}Papers{{ end }} {{ define "main" }} {{ partial
+"paper-list.html" (dict "papers" (where site.RegularPages "Section" "papers"))
+}} {{ end }}

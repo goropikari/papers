@@ -1,0 +1,14 @@
+{{ define "title" }}Tags | Papers{{ end }} {{ define "main" }}
+<section class="page-shell">
+  <h1>Tags</h1>
+  {{ if .Data.Terms }}
+  <ul>
+    {{ range .Data.Terms.Alphabetical }}
+    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="empty-state">No tags yet.</p>
+  {{ end }}
+</section>
+{{ end }}

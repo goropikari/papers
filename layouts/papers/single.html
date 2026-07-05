@@ -1,0 +1,29 @@
+{{ define "title" }}{{ .Title }} | Papers{{ end }} {{ define "main" }}
+<article class="page-shell paper-detail">
+  <header class="paper-detail-header">
+    <h1>{{ .Title }}</h1>
+    <p class="paper-summary">{{ .Params.summary }}</p>
+  </header>
+
+  <dl class="paper-meta">
+    <dt>Authors</dt>
+    <dd>{{ delimit .Params.authors ", " }}</dd>
+    <dt>Year</dt>
+    <dd>{{ .Params.year }}</dd>
+    <dt>Venue</dt>
+    <dd>{{ .Params.venue }}</dd>
+    <dt>Paper</dt>
+    <dd><a href="{{ .Params.paper_url }}">{{ .Params.paper_url }}</a></dd>
+    <dt>Tags</dt>
+    <dd>
+      {{ range .Params.tags }}
+      <span class="paper-tag">{{ . }}</span>
+      {{ end }}
+    </dd>
+  </dl>
+
+  <div class="paper-body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
