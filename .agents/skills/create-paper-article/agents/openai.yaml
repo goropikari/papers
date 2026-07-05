@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Paper Article"
+  short_description: "Create paper notes from a URL"
+  default_prompt: "Use $create-paper-article to create a paper note from this URL."

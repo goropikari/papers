@@ -33,7 +33,9 @@ def copy_project() -> tempfile.TemporaryDirectory:
     return temp_dir
 
 
-def write_paper(site: Path, slug: str, frontmatter: str, body: str | None = None) -> None:
+def write_paper(
+    site: Path, slug: str, frontmatter: str, body: str | None = None
+) -> None:
     paper_dir = site / "content" / "papers"
     paper_dir.mkdir(parents=True, exist_ok=True)
     if body is None:
@@ -181,7 +183,9 @@ class HugoSiteTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             list_html = read_public(site, "papers/index.html")
             self.assertIn("Only this summary should appear on the list.", list_html)
-            self.assertNotIn("This body opening must not become the list excerpt.", list_html)
+            self.assertNotIn(
+                "This body opening must not become the list excerpt.", list_html
+            )
 
     def test_papers_are_sorted_by_year_descending_then_title(self):
         with copy_project() as temp_dir:
@@ -210,9 +214,15 @@ class HugoSiteTests(unittest.TestCase):
 
             self.assertEqual(result.returncode, 0, result.stderr)
             list_html = read_public(site, "papers/index.html")
-            self.assertLess(list_html.index("Alpha Same Year"), list_html.index("Newer Paper"))
-            self.assertLess(list_html.index("Newer Paper"), list_html.index("Middle Paper"))
-            self.assertLess(list_html.index("Middle Paper"), list_html.index("Older Paper"))
+            self.assertLess(
+                list_html.index("Alpha Same Year"), list_html.index("Newer Paper")
+            )
+            self.assertLess(
+                list_html.index("Newer Paper"), list_html.index("Middle Paper")
+            )
+            self.assertLess(
+                list_html.index("Middle Paper"), list_html.index("Older Paper")
+            )
 
     def test_search_contract_uses_title_and_summary_only(self):
         with copy_project() as temp_dir:
@@ -307,7 +317,9 @@ class HugoSiteTests(unittest.TestCase):
 
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("No Status Paper", read_public(site, "papers/index.html"))
-            self.assertIn("No Status Paper", read_public(site, "papers/no-status/index.html"))
+            self.assertIn(
+                "No Status Paper", read_public(site, "papers/no-status/index.html")
+            )
 
     def test_github_pages_base_url_and_workflow_are_configured(self):
         config_candidates = [
@@ -325,12 +337,10 @@ class HugoSiteTests(unittest.TestCase):
 
         workflow_dir = REPO_ROOT / ".github" / "workflows"
         workflow_text = "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in workflow_dir.glob("*.yml")
+            path.read_text(encoding="utf-8") for path in workflow_dir.glob("*.yml")
         )
         workflow_text += "\n".join(
-            path.read_text(encoding="utf-8")
-            for path in workflow_dir.glob("*.yaml")
+            path.read_text(encoding="utf-8") for path in workflow_dir.glob("*.yaml")
         )
         self.assertIn("hugo", workflow_text.lower())
         self.assertIn("actions/upload-pages-artifact", workflow_text)
